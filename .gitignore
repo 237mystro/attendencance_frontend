@@ -29,6 +29,7 @@ yarn-error.log*
 
 # Documents
 *.html
+!public/index.html
 *.md
 *.pdf
 *.docx
