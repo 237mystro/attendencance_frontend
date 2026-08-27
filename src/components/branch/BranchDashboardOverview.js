@@ -6,11 +6,11 @@ import {
   Button,
   Chip,
   CircularProgress,
-  Grid,
   LinearProgress,
   Stack,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import {
   AccessTimeRounded,
   AssignmentTurnedInRounded,

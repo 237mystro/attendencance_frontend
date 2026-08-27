@@ -12,7 +12,6 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-  Grid,
   MenuItem,
   Stack,
   Table,
@@ -24,6 +23,7 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { Add, EventNote } from '@mui/icons-material';
 import { apiRequest } from '../../utils/api';
 

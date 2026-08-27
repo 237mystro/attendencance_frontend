@@ -6,7 +6,6 @@ import {
   Button,
   Chip,
   CircularProgress,
-  Grid,
   IconButton,
   InputAdornment,
   List,
@@ -19,6 +18,7 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   AssignmentRounded,

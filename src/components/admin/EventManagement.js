@@ -3,12 +3,13 @@ import { MapContainer, TileLayer, Marker, Circle, useMapEvents } from 'react-lea
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import {
-  Box, Button, Card, CardContent, Typography, Grid, Dialog, DialogTitle,
+  Box, Button, Card, CardContent, Typography, Dialog, DialogTitle,
   DialogContent, DialogActions, TextField, MenuItem, IconButton, Chip,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   Paper, Alert, Slider, CircularProgress, Stepper, Step, StepLabel,
   Divider, Tooltip, Stack, Badge, Tab, Tabs
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import {
   Add, Delete, QrCode, Download, LocationOn, ContentCopy, MyLocation,
   People, AccessTime, CheckCircle, ArrowForward, ArrowBack,

@@ -6,7 +6,6 @@ import {
   Chip,
   CircularProgress,
   Divider,
-  Grid,
   List,
   ListItem,
   ListItemAvatar,
@@ -14,6 +13,7 @@ import {
   Stack,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import {
   Campaign,
   CheckCircle,

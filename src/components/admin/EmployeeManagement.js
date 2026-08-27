@@ -22,7 +22,6 @@ import {
   Alert,
   CircularProgress,
   Box,
-  Grid,
   Chip,
   IconButton,
   Accordion,
@@ -34,6 +33,7 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
+import Grid from '@mui/material/GridLegacy';
 import { Add, Edit, Delete, ExpandMore, AddCircle, RemoveCircle, ContentCopy, Search, Clear } from '@mui/icons-material';
 import { apiRequest } from '../../utils/api';
 import {

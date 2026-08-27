@@ -11,7 +11,6 @@ import {
   Divider,
   FormControl,
   FormControlLabel,
-  Grid,
   InputLabel,
   MenuItem,
   Select,
@@ -20,6 +19,7 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import InputAdornment from '@mui/material/InputAdornment';
 import {
   CloudDownload,

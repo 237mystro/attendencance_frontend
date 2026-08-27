@@ -245,6 +245,7 @@ const EmployeeDashboard = ({ toggleDarkMode, darkMode }) => {
         component="main"
         sx={{
           flexGrow: 1,
+          minWidth: 0,
           width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
           minHeight: '100vh',
           bgcolor: pageColor,

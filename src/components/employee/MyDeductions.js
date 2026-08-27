@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  Box, Typography, Card, CardContent, Grid, Chip, Divider,
+  Box, Typography, Card, CardContent, Chip, Divider,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   Paper, Alert, Collapse, IconButton, Tooltip, Tab, Tabs,
   LinearProgress
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import {
   AccessTime, CardGiftcard, MoneyOff, CheckCircle, KeyboardArrowDown,
   KeyboardArrowUp, Info, EmojiEvents

@@ -10,7 +10,6 @@ import {
   Container,
   Divider,
   Drawer,
-  Grid,
   IconButton,
   List,
   ListItem,
@@ -20,6 +19,7 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { alpha } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
 import {
