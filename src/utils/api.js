@@ -1,9 +1,9 @@
 import { getStoredToken } from './authSession';
 
-export const API_BASE_URL = process.env.API_URL || 'http://localhost:5000/api/v1';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
 
-export const SOCKET_URL =
-  process.env.SOCKET_URL || API_BASE_URL.replace(/\/api\/v1\/?$/, '');
+export const REACT_APP_SOCKET_URL =
+  process.env.REACT_APP_SOCKET_URL || API_BASE_URL.replace(/\/api\/v1\/?$/, '');
 
 export const authHeaders = (headers = {}) => {
   const token = getStoredToken();
