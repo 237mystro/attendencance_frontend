@@ -16,6 +16,10 @@ build/
 .env.local
 .env.development.local
 .env.test.local
+<<<<<<< HEAD
+=======
+.env.production.local
+>>>>>>> 676a6e6bfa2b86dbd0753265844380ad217a2409
 .env.production
 
 npm-debug.log*
