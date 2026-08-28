@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+/* Dark mode is driven by a `dark` class on <html>, set by ThemeProvider. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ── Brand ─────────────────────────────────────────────────────────────── */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #e0eaff;
+  --color-brand-200: #c7d9fe;
+  --color-brand-300: #a3befd;
+  --color-brand-400: #7d9bfa;
+  --color-brand-500: #155eef;
+  --color-brand-600: #1047c7;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #0f274f;
+  --color-brand-900: #0e2144;
+  --color-brand-950: #08172f;
+
+  /* Teal secondary accent */
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #0f766e;
+  --color-accent-600: #00796b;
+
+  /* ── Surfaces & text (light) ───────────────────────────────────────────── */
+  --color-ink: #0f172a;
+  --color-ink-soft: #10213f;
+  --color-muted: #64748b;
+  --color-muted-soft: #94a3b8;
+  --color-line: #e8ecf3;
+  --color-canvas: #f3f6fb;
+  --color-surface: #ffffff;
+
+  /* ── Surfaces & text (dark) ────────────────────────────────────────────── */
+  --color-canvas-dark: #0b1220;
+  --color-surface-dark: #111c30;
+  --color-ink-dark: #e5eefb;
+  --color-line-dark: #1e293b;
+
+  /* ── Status ────────────────────────────────────────────────────────────── */
+  --color-success: #16a34a;
+  --color-success-soft: #dcfce7;
+  --color-warn: #f59e0b;
+  --color-warn-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fee2e2;
+  --color-info: #0288d1;
+  --color-info-soft: #e0f2fe;
+
+  /* ── Role portal accents (sidebar gradients) ───────────────────────────── */
+  --color-portal-admin-from: #0d1f42;
+  --color-portal-admin-via: #112952;
+  --color-portal-admin-to: #153566;
+  --color-portal-employee-from: #0c1e38;
+  --color-portal-employee-via: #0d2e55;
+  --color-portal-employee-to: #0f3b6a;
+  --color-portal-branch-from: #0e2218;
+  --color-portal-branch-via: #122d20;
+  --color-portal-branch-to: #163a28;
+
+  /* ── Typography ────────────────────────────────────────────────────────── */
+  --font-sans: 'Plus Jakarta Sans', 'Segoe UI Variable', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  /* ── Radii — mirrors MUI shape.borderRadius: 18 ────────────────────────── */
+  --radius-btn: 1rem;      /* 16px */
+  --radius-card: 1.25rem;  /* 20px */
+  --radius-panel: 1.5rem;  /* 24px */
+  --radius-hero: 2rem;     /* 32px */
+
+  /* ── Signature shadows ─────────────────────────────────────────────────── */
+  --shadow-panel: 0 16px 36px rgb(15 23 42 / 0.07);
+  --shadow-panel-hover: 0 20px 40px rgb(15 23 42 / 0.12);
+  --shadow-panel-dark: 0 14px 34px rgb(2 6 23 / 0.28);
+  --shadow-cta: 0 20px 40px rgb(21 94 239 / 0.24);
+  --shadow-cta-hover: 0 24px 46px rgb(21 94 239 / 0.3);
+  --shadow-hero: 0 20px 44px rgb(15 23 42 / 0.18);
+  --shadow-glass: 0 28px 90px rgb(15 23 42 / 0.12);
+  --shadow-menu: 0 8px 30px rgb(0 0 0 / 0.12);
+
+  /* ── Layout ────────────────────────────────────────────────────────────── */
+  --spacing-sidebar: 16.25rem; /* 260px */
+  --container-content: 82.5rem; /* 1320px — matches source maxWidth */
+
+  /* ── Minimum tap target (WCAG 2.5.5) ───────────────────────────────────── */
+  --spacing-tap: 2.75rem; /* 44px */
+}
+
+@layer base {
+  * {
+    @apply border-line dark:border-line-dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body,
+  #root {
+    @apply min-h-full;
+    /* Guards against the horizontal-scroll requirement at every breakpoint. */
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased dark:bg-canvas-dark dark:text-ink-dark;
+    background-image:
+      radial-gradient(circle at top left, rgb(21 94 239 / 0.13), transparent 26%),
+      radial-gradient(circle at bottom right, rgb(15 118 110 / 0.09), transparent 22%),
+      linear-gradient(180deg, #f8fbff 0%, #edf3fb 100%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at top left, rgb(21 94 239 / 0.12), transparent 26%),
+      radial-gradient(circle at bottom right, rgb(15 118 110 / 0.08), transparent 22%),
+      linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+  }
+
+  ::selection {
+    @apply bg-brand-500/20;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    @apply max-w-full;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  /* A single, consistent focus ring for every interactive element. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  /* Thin scrollbars inside dark panels (matches the source drawer styling). */
+  .scrollbar-slim {
+    scrollbar-width: thin;
+  }
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .scrollbar-slim::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 0.18);
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  /* Panel/card surface used by every dashboard section. */
+  .surface-panel {
+    @apply rounded-panel border border-line bg-surface shadow-panel
+           dark:border-line-dark dark:bg-surface-dark dark:shadow-panel-dark;
+  }
+
+  /* Glass card used by the auth screens. */
+  .surface-glass {
+    @apply rounded-panel border border-white/70 bg-white/80 shadow-glass backdrop-blur-2xl
+           dark:border-white/10 dark:bg-surface-dark/80;
+  }
+
+  /* Hero band on dashboard pages. */
+  .surface-hero {
+    @apply relative overflow-hidden rounded-hero text-white shadow-hero;
+    background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%);
+  }
+
+  /* Field styling shared by Input/Select/Textarea. */
+  .field-base {
+    @apply block w-full rounded-btn border border-ink/15 bg-surface px-3.5 text-base
+           text-ink placeholder:text-muted-soft
+           focus:border-brand-500 focus:ring-2 focus:ring-brand-500/25 focus:outline-none
+           disabled:cursor-not-allowed disabled:bg-canvas disabled:text-muted
+           dark:border-white/15 dark:bg-surface-dark dark:text-ink-dark dark:disabled:bg-white/5;
+    min-height: var(--spacing-tap);
+  }
+
+  .field-invalid {
+    @apply border-danger focus:border-danger focus:ring-danger/25;
+  }
+
+  /* Range slider with a 44px hit area but a thin visible track (WCAG 2.5.5).
+     The track and thumb are styled per-engine because there is still no
+     standard selector for them. */
+  .range-input {
+    @apply h-tap w-full cursor-pointer appearance-none bg-transparent;
+  }
+  .range-input::-webkit-slider-runnable-track {
+    @apply h-2 rounded-full bg-ink/10;
+  }
+  .range-input::-moz-range-track {
+    @apply h-2 rounded-full bg-ink/10;
+  }
+  .range-input::-webkit-slider-thumb {
+    @apply mt-[-0.375rem] size-5 rounded-full bg-brand-500;
+    appearance: none;
+  }
+  .range-input::-moz-range-thumb {
+    @apply size-5 rounded-full border-0 bg-brand-500;
+  }
+  .dark .range-input::-webkit-slider-runnable-track {
+    @apply bg-white/15;
+  }
+  .dark .range-input::-moz-range-track {
+    @apply bg-white/15;
+  }
+
+  /* Table shell: horizontal overflow is contained, never on <body>. */
+  .table-scroll {
+    @apply -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0;
+  }
+}
+
+@layer utilities {
+  /* Honour users who ask for less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
