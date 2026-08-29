@@ -46,7 +46,7 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import { apiRequest } from '../../utils/api';
 import { getDeviceLabel } from '../../utils/deviceFingerprint';
-import { REACT_APP_SOCKET_URL } from '../../utils/api';
+import { VITE_SOCKET_URL } from '../../utils/api';
 import io from 'socket.io-client';
 import { getStoredToken } from '../../utils/authSession';
 import AttendanceInsights from './AttendanceInsights';
@@ -104,7 +104,7 @@ const AttendanceDashboard = () => {
 
   // ── Real-time socket listener for flagged-device events ──────────────────
   useEffect(() => {
-    const socket = io(REACT_APP_SOCKET_URL, { transports: ['websocket'] });
+    const socket = io(VITE_SOCKET_URL, { transports: ['websocket'] });
     const token  = getStoredToken();
     if (token) socket.emit('authenticate', token);
 

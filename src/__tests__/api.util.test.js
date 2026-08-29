@@ -1,6 +1,6 @@
 /**
  * Frontend Unit Tests — api.js utility
- * Tests: API_BASE_URL derivation, REACT_APP_SOCKET_URL derivation, parseUnreadCount,
+ * Tests: API_BASE_URL derivation, VITE_SOCKET_URL derivation, parseUnreadCount,
  *        authHeaders, parseJsonResponse, apiRequest (mocked fetch)
  */
 
@@ -12,25 +12,25 @@ jest.mock('../utils/authSession', () => ({
 import { getStoredToken } from '../utils/authSession';
 import {
   API_BASE_URL,
-  REACT_APP_SOCKET_URL,
+  VITE_SOCKET_URL,
   authHeaders,
   parseUnreadCount,
   parseJsonResponse,
   apiRequest
 } from '../utils/api';
 
-// ── API_BASE_URL & REACT_APP_SOCKET_URL ─────────────────────────────────────────────────
+// ── API_BASE_URL & VITE_SOCKET_URL ─────────────────────────────────────────────────
 describe('API_BASE_URL', () => {
   test('is defined and contains /api/v1', () => {
     expect(API_BASE_URL).toContain('/api/v1');
   });
 });
 
-describe('REACT_APP_SOCKET_URL', () => {
+describe('VITE_SOCKET_URL', () => {
   test('is derived from API_BASE_URL without the /api/v1 suffix', () => {
-    expect(REACT_APP_SOCKET_URL).not.toContain('/api/v1');
-    expect(typeof REACT_APP_SOCKET_URL).toBe('string');
-    expect(REACT_APP_SOCKET_URL.length).toBeGreaterThan(0);
+    expect(VITE_SOCKET_URL).not.toContain('/api/v1');
+    expect(typeof VITE_SOCKET_URL).toBe('string');
+    expect(VITE_SOCKET_URL.length).toBeGreaterThan(0);
   });
 });
 

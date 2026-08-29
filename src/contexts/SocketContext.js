@@ -1,7 +1,7 @@
 // src/contexts/SocketContext.js
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import { apiRequest, parseUnreadCount, REACT_APP_SOCKET_URL } from '../utils/api';
+import { apiRequest, parseUnreadCount, VITE_SOCKET_URL } from '../utils/api';
 import { getStoredToken } from '../utils/authSession';
 import { shouldNotifyUser, showDeviceNotification } from '../utils/deviceNotifications';
 import { subscribeToPush } from '../utils/pushSubscription';
@@ -60,7 +60,7 @@ export const SocketProvider = ({ children }) => {
       return undefined;
     }
 
-    const newSocket = io(REACT_APP_SOCKET_URL, {
+    const newSocket = io(VITE_SOCKET_URL, {
       transports: ['websocket', 'polling'],
       reconnection: true,
       reconnectionAttempts: 5,

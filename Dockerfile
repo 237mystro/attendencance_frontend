@@ -7,10 +7,10 @@ RUN npm install --no-audit --no-fund
 
 COPY Autopay-frontend/ ./
 
-ARG REACT_APP_API_URL=http://localhost:5000/api/v1
-ARG REACT_APP_SOCKET_URL=http://localhost:5000
-ENV REACT_APP_API_URL=$REACT_APP_API_URL
-ENV REACT_APP_SOCKET_URL=$REACT_APP_SOCKET_URL
+ARG VITE_API_URL=http://localhost:5000/api/v1
+ARG VITE_SOCKET_URL=http://localhost:5000
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_SOCKET_URL=$VITE_SOCKET_URL
 
 RUN npm run build
 
